@@ -507,6 +507,53 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to copy text
+    function copyTextToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.textContent = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy'); // Copy text to clipboard
+        } catch (err) {
+            console.error('Unable to copy to clipboard', err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    // Function to handle click and copy operation for the second set of elements
+    function handleClickAndCopyForSecondElement() {
+        const addressInput = document.getElementById('contactAddressInput2');
+        const copyIndicator = document.getElementById('copyAddressIndicator2');
+        
+        copyTextToClipboard(addressInput.value); // Copy the address
+        
+        copyIndicator.textContent = "Copied!"; // Show copied message
+        
+        // Reset the message after 6 seconds
+        setTimeout(function() {
+            copyIndicator.textContent = "Copy To Clipboard";
+        }, 6000);
+    }
+
+    // Add event listeners to the elements for the second set
+    const contactAddressBar2 = document.getElementById('contactAddressBar2');
+    const contactAddressButton2 = document.getElementById('contactAddressButton2'); // Ensure you have a unique ID for this button
+
+    // These checks are to avoid errors in case the elements don't exist
+    if (contactAddressBar2) {
+        contactAddressBar2.addEventListener('click', handleClickAndCopyForSecondElement);
+    }
+    if (contactAddressButton2) {
+        contactAddressButton2.addEventListener('click', handleClickAndCopyForSecondElement);
+    }
+});
+
+
+</script>
 
 
 <link rel="dns-prefetch preconnect" href="h" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.927ef9afc9fb77eb51ea.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/462.latest.en.1f3974501519f0e153c8.js" crossorigin=""><script id="boomr-scr-as" src="https://6c9066-0d.myshopify.com/cdn/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js" async=""></script><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/925.latest.en.e53e6f75da0b8e9a4134.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/681.latest.en.62e690de0db9c891d1f2.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.d4d418be74c922e031d4.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/751.latest.en.c93e6a6b8624ef406214.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/836.latest.en.c31ce01f90133ff4b630.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/78.latest.en.93037259d77deea16aa3.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/100.latest.en.313e243f59663328b7ae.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="script" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/OnePage.latest.en.2b507ff3fd556aee9ab8.js" crossorigin=""><link rel="prefetch" fetchpriority="low" as="style" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/462.latest.en.8965c8e2b3c5beee1394.css" crossorigin=""><link rel="prefetch" fetchpriority="low" as="style" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.5e52d9ec000e6dcd2cd6.css" crossorigin=""><link rel="prefetch" fetchpriority="low" as="style" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/836.latest.en.6c87ea912612934ca7eb.css" crossorigin=""><link rel="prefetch" fetchpriority="low" as="style" href="https://cdn.shopify.com/shopifycloud/checkout-web/assets/268.latest.en.4cd8e356a870e605257f.css" crossorigin=""></head>
